@@ -1,32 +1,68 @@
-function App() {
-  return (<div class="flex justify-center items-center h-screen bg-gray-100">
-		<div class="flex flex-row bg-black text-white font-sans w-4/5 max-w-3xl h-80 rounded-lg">
-			<div>
-				<img class="h-full rounded-tl-lg rounded-bl-lg" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/h8fnwL1.png"/>
-			</div>
+import MovieCard from './components/MovieCardComponent';
 
-			<div class="w-3/4 p-6">
-				<h1 class="text-4xl tracking-widest h-10 min-h-10 max-h-10 overflow-hidden">KILL BILL: VOL. 1</h1>
-				<div class="space-x-8">
-					<span>2003</span>
-					<span>111 min</span>
-					<span>Action</span>
-				</div>
-				<div class="text-yellow-400 tracking-widest">**********</div>
-				<p class="h-fit min-h-16 max-h-28 overflow-hidden text-ellipsis line-clamp-4">
-				The lead character, called 'The Bride,' was a member of the Deadly Viper
-				Assassination Squad, led by her lover 'Bill.' Upon realizing she was pregnant
-				with Bill's child, 'The Bride' decided to escape her life as a killer. She
-				fled to Texas, met a young man, who, on the day of their wedding rehearsal was
-				gunned down by
-				</p>
-				<div class="my-2 text-yellow-400"><a href="/">Read more</a></div>
-				<button class="transition ease-in delay-150 duration-300 my-2 rounded bg-black
-				px-2 py-1 border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400
-				hover:text-black hover:font-bold hover:p-1">WATCH TRAILER</button>
-			</div>
+function App() {
+	const movies = [
+		{
+			id: 1,
+			cover: "https://posters.movieposterdb.com/20_10/2012/848228/l_848228_9bc5bc2a.jpg",
+			title: "Vingadores",
+			year: "2012",
+			duration: 143,
+			genre: "Ação, Aventura, Ficção",
+			synopsis: "Nick Fury, diretor da S.H.I.E.L.D., reúne os super-heróis mais poderosos do planeta para formar os Vingadores e proteger a Terra de uma ameaça extraterrestre."
+		},
+		{
+			id: 2,
+			cover: "https://posters.movieposterdb.com/22_06/2001/120737/l_120737_0ff31144.jpg",
+			title: "O Senhor dos Anéis: A Sociedade do Anel",
+			year: "2001",
+			duration: 178,
+			genre: "Aventura, Fantasia, Drama",
+			synopsis: "Um hobbit chamado Frodo Baggins recebe a missão de destruir o Um Anel e salvar a Terra Média de Sauron."
+		},
+		{
+			id: 3,
+			cover: "https://posters.movieposterdb.com/22_07/1972/68646/l_68646_8c811dec.jpg",
+			title: "O Poderoso Chefão",
+			year: "1972",
+			duration: 177,
+			genre: "Drama, Crime",
+			synopsis: "O filme conta a história de Don Vito Corleone, um poderoso chefão da máfia italiana nos EUA."
+		},
+		{
+			id: 4,
+			cover: "https://posters.movieposterdb.com/07_10/1997/119116/l_119116_392c38e7.jpg",
+			title: "O Quinto Elemento",
+			year: "1997",
+			duration: 126,
+			genre: "Ficção, Ação, Aventura",
+			synopsis: "Em um futuro distante, um taxista chamado Korben Dallas se envolve em uma batalha para salvar o mundo de um mal antigo."
+		},
+		{
+			id: 5,
+			cover: "https://posters.movieposterdb.com/12_05/1977/76759/l_76759_efc02969.jpg",
+			title: "Star Wars: Episódio IV - Uma Nova Esperança",
+			year: "1977",
+			duration: 121,
+			genre: "Ficção, Ação, Aventura",
+			synopsis: "O filme segue a jornada de Luke Skywalker, um jovem que se junta à Rebelião para derrotar o Império Galáctico."
+		}
+	];
+
+	return (
+		<div className="flex flex-col justify-center items-center h-full bg-gray-100">
+			{movies.map((movie) => (
+				<MovieCard
+					cover={movie.cover}
+					title={movie.title}
+					year={movie.year}
+					duration={movie.duration}
+					genre={movie.genre}
+					synopsis={movie.synopsis}
+				/>
+			))}
 		</div>
-	</div>)
+	)
 }
 
 export default App
